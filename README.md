@@ -2,6 +2,8 @@ PyPiano
 =======
 Play the piano on your computer keyboard!
 
+![My image](gustavklopp.github.com/img/pypiano.png)
+
 ## What is this package used for?
 
 Only for your enjoyment... Between 2 coding sessions, try to relax by frenetically typing on your computer and doing music.
