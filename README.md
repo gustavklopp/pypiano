@@ -12,7 +12,9 @@ Python package with PyPi in the future...
 For the moment:
 
 * Requirements:
+
 Pygame 
+
 Python 3.x
 
 ## Using it:
