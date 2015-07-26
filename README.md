@@ -2,7 +2,7 @@ PyPiano
 =======
 Play the piano on your computer keyboard!
 
-![My image](gustavklopp.github.com/img/pypiano.png)
+![My image](http://gustavklopp.github.com/img/pypiano.png)
 
 ## What is this package used for?
 
