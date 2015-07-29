@@ -17,25 +17,28 @@ For the moment:
 
 Pygame 
 
-Python 3.x
+Python 3.x, but Python 2.x should work also
 
 ## Using it:
 
-`python python_keyboardpiano.py`
+`python pypiano.py`
 
-You can type using a AZERTY keyboard.
+You can also type using a AZERTY keyboard: 
+`python pypiano.py azerty` 
+
+(QWERTY is default so the automatic value is `python pypiano.py QWERTY`).
 The name of the key to type are indicated bellow the key itself (with the music note)
-For QWERTY keyboard, I will implement that if there are people interested with this project (not difficult)
 
 ## Known Bugs:
 
-After some times, the sound seems stop! You can always type on your keyboard but without effects and can't close the program!
-
-I'm trying to solve it...
+None for the moment... Don't hesitate to report issues!
 
 ## Contributors
 
 If you have some suggestions, critics, problems to make it work in your special configuration, I can (or try..) help!
+
+Thanks to the pygame-users group for the help! (see: http://www.pygame.org/wiki/info)
+Especially Michael and Sam for solving bad FPS!
 
 ## License
 

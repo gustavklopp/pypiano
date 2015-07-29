@@ -15,7 +15,7 @@ KEY_HEIGHT = 0 # height of white key (useful for put the text at the right dista
 DISTKEY_TEXT = 10 # distance between the key and the text with the name of the key below
 BLUE = (0,0,255)
 BLACK = (0,0,0)
-SCANCODE_UNICODE = dict(zip([ # correspondance azerty keyboard with its scancode
+AZERTY_SCANCODE_UNICODE = dict(zip([ # correspondance azerty keyboard with its scancode
 49,10,11,12,13,14,15,16,17,18,19,20,21,
 23,24,25,26,27,28,29,30,31,32,33,
 38,39,40,41,42,43,44,45,46,47,48,51,
@@ -25,6 +25,18 @@ SCANCODE_UNICODE = dict(zip([ # correspondance azerty keyboard with its scancode
 'tab','a','z','e','r','t','y','u','i','o','p',
 'q','s','d','f','g','h','j','k','l','m','ù','*',
 'lsh','<','w','x','c','v','b','n',',',';',':','!','rsh'
+]))
+
+QWERTY_SCANCODE_UNICODE = dict(zip([ # correspondance azerty keyboard with its scancode
+49,10,11,12,13,14,15,16,17,18,19,20,21,
+23,24,25,26,27,28,29,30,31,32,33,
+38,39,40,41,42,43,44,45,46,47,48,51,
+50,94,52,53,54,55,56,57,58,59,60,61,62
+], [
+'`','1','2','3','4','5','6','7','8','9','0','-','=',
+'tab','q','w','e','r','t','y','u','i','o','p',
+'a','s','d','f','g','h','j','k','l',';','\'','\\',
+'lsh','<','z','x','c','v','b','n','m',',','.','/','rsh'
 ]))
 
 # DEFINING THE KEYBOARD SETTING:
@@ -78,7 +90,22 @@ class Key(pygame.sprite.Sprite):
 
 class Game(object):
     def __init__(self):
-        
+        # Qwerty or Azerty keyboard depending on command line arguments:
+        if len(sys.argv) == 1:
+            SCANCODE_UNICODE = QWERTY_SCANCODE_UNICODE
+        elif len(sys.argv) > 2:
+            print("You need to provide only one argument: for example: 'python pypiano.pi azerty'")
+            sys.exit()
+        else:
+            arg = sys.argv[1].upper()
+            if arg == "QWERTY":
+                SCANCODE_UNICODE = QWERTY_SCANCODE_UNICODE
+            elif arg == "AZERTY":
+                SCANCODE_UNICODE = AZERTY_SCANCODE_UNICODE
+            else:
+                print("Not a valid argument. Valid example: 'python pypiano.pi azerty'")
+                sys.exit()
+            
         # Draw the background:
         self.screen=pygame.display.set_mode((900,250)) # set screensize of pygame window
         self.background = pygame.Surface(self.screen.get_size())  #create empty pygame surface
@@ -193,6 +220,8 @@ class Game(object):
                     if keyobj.keyevent == key:
                         keyobj.pressed = False
         return True
+
+
 
 if __name__ == "__main__":
     game = Game()    
