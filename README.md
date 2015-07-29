@@ -29,7 +29,8 @@ You can also type using a AZERTY keyboard:
 (QWERTY is default so the automatic value is `python pypiano.py QWERTY`).
 The name of the key to type are indicated bellow the key itself (with the music note)
 
-Position of the 48 keys (4 octaves available, from First note C of 2nd octave:C2 to last note of 5th octave: B5)
+Position of the 48 keys (4 octaves available, from First note C of 2nd octave:C2 to last note of 5th octave: B5):
+
 ![keyboard_layout](http://gustavklopp.github.io/img/keyboard_layout.png)
 
 (from "KB United States-NoAltGr" by This file was derived from: KB United States.svg. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:KB_United_States-NoAltGr.svg#/media/File:KB_United_States-NoAltGr.svg)
