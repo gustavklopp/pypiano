@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#-*coding:utf-8-*-
 import os
 import pygame
 from pygame.locals import *
@@ -6,6 +7,7 @@ import sys
 pygame.init()
 
 # CONSTANTS :
+FPS = 60 # desired framerate in frames per second. try out other values !
 KEYBOARDX = 5   # Top left of the full keyboard
 KEYBOARDY = 5   # Top left of the full keyboard
 KEYBETWEEN = 0  # distance between the key
@@ -36,7 +38,7 @@ for octave in range(2,6):
         note_sounds.append(pygame.mixer.Sound(\
             # it needs 16bits audio files:
             # wav files make it crash after some times...
-             os.path.join('pythonpiano_data','16_piano-med-'+insidenote+str(octave)+'.ogg')))
+             os.path.join('pythonpiano_sounds','16_piano-med-'+insidenote+str(octave)+'.ogg')))
 # Create a dict of filename sound, and keyboard key:
 with open('computer_typewriter.kb', 'r') as f:
     KEY_ASCII = f.read().split('\n') 
@@ -61,14 +63,17 @@ class Key(pygame.sprite.Sprite):
         self.rect.x = 0  # temporary, the position of the key is '0'
         self.rect.y = KEYBOARDY
         self._layer = 0 # the order with which the key is drawn
+        # Preloading of the key picture for faster load
+        self._img_down = pygame.image.load(os.path.join('pythonpiano_pictures',self.name+'_pressed.png'))
+        self._img_up = pygame.image.load(os.path.join('pythonpiano_pictures',self.name+'_unpressed.png'))
         
         
     def update(self):
         if self.pressed:
-            self.image = pygame.image.load(os.path.join('pictures',self.name+'_pressed.png'))
+            self.image = self._img_down
 #             print("the key {} is being pressed".format(self.keyevent))
         else:
-            self.image = pygame.image.load(os.path.join('pictures',self.name+'_unpressed.png'))
+            self.image = self._img_up
 
 
 class Game(object):
@@ -78,7 +83,8 @@ class Game(object):
         self.screen=pygame.display.set_mode((900,250)) # set screensize of pygame window
         self.background = pygame.Surface(self.screen.get_size())  #create empty pygame surface
         self.background.fill((255,255,255))     #fill the background white color (red,green,blue)
-        self.background = self.background.convert()  #convert Surface object to make blitting faster
+        # Useless if it's not a sprite...:
+#         self.background = self.background.convert()  #convert Surface object to make blitting faster
 
         # Create all the sprites beforehand:
         # Position of key for one octave:
@@ -134,7 +140,6 @@ class Game(object):
     def run(self):
         print("Starting Event loop")
         running = True                    
-        FPS = 40 # desired framerate in frames per second. try out other values !
 
 
         while running:
