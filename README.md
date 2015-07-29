@@ -2,7 +2,7 @@ PyPiano
 =======
 Play the piano on your computer keyboard!
 
-![My image](http://gustavklopp.github.io/img/pypiano.png)
+![PyPiano](http://gustavklopp.github.io/img/pypiano.png)
 
 ## What is this package used for?
 
@@ -28,6 +28,11 @@ You can also type using a AZERTY keyboard:
 
 (QWERTY is default so the automatic value is `python pypiano.py QWERTY`).
 The name of the key to type are indicated bellow the key itself (with the music note)
+
+Position of the 48 keys (4 octaves available, from C2 to B5)
+![keyboard_layout](http://gustavklopp.github.io/img/keyboard_layout.png)
+
+(from "KB United States-NoAltGr" by This file was derived from: KB United States.svg. Licensed under CC BY-SA 3.0 via Wikimedia Commons - https://commons.wikimedia.org/wiki/File:KB_United_States-NoAltGr.svg#/media/File:KB_United_States-NoAltGr.svg)
 
 ## Known Bugs:
 
