@@ -21,7 +21,7 @@ Python 3.x, but Python 2.x should work also
 
 ## Using it:
 
-`python pypiano.py`
+* `python pypiano.py`
 
 You can also type using a AZERTY keyboard: 
 `python pypiano.py azerty` 
@@ -29,7 +29,7 @@ You can also type using a AZERTY keyboard:
 (QWERTY is default so the automatic value is `python pypiano.py QWERTY`).
 The name of the key to type are indicated bellow the key itself (with the music note)
 
-Position of the 48 keys (4 octaves available, from First note C of 2nd octave:C2 to last note of 5th octave: B5):
+* Position of the 48 keys (4 octaves available, from First note C of 2nd octave:C2 to last note of 5th octave: B5):
 
 ![keyboard_layout](http://gustavklopp.github.io/img/keyboard_layout.png)
 
